@@ -1,8 +1,6 @@
-- name: Install Jenkins
+- name: Configure CI server
   hosts: localhost
-  gather_facts: false
-  become: true
-  #sudo: True
-  tasks:
-  - import_role:
-      name: jenkins
+  sudo: True
+  roles:
+    - git
+    - geerlingguy.jenkins
