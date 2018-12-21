@@ -1,9 +1,8 @@
-#---
-- name: Configure CI server
+- name: Install Jenkins
   hosts: localhost
-  sudo: True
+  gather_facts: false
+  become: true
+  #sudo: True
   tasks:
-    - name: install git only if it is not already installed
-      yum:
-        name=git
-        state=present
+  - import_role:
+      name: jenkins
