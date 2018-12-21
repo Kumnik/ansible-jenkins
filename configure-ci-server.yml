@@ -1,0 +1,9 @@
+#---
+- name: Configure CI server
+  hosts: localhost
+  sudo: True
+  tasks:
+    - name: install git only if it is not already installed
+      yum:
+        name=git
+        state=present
